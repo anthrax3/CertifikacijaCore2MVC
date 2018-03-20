@@ -12,13 +12,8 @@ namespace CertifikacijaMVC.Models
         [Display(Name = "Tekst odgovora")]
         [Required]
         public string TekstOdgovora { get; set; }
-        [Display(Name = "Tačno?")]
-        [Required]
-        public bool Tačno { get; set; }
-        [Display(Name = "Tip odgovora")]
-        [Required]
-        public string TipOdgovora { get; set; }
         public Pitanje Pitanje { get; set; }
         public ICollection<Test> Testovi { get; set; }
+        public ICollection<OdgNaPitanje> OdgNaPitanjes { get; set; }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model CertifikacijaMVC.Models.OdgNaPitanje
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OdgNaPitanje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tačno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tačno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipOdgovora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipOdgovora)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OdabirTipa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OdabirTipa.OdabirTipaId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Odgovor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Odgovor.TekstOdgovora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OdgNaPitanjeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

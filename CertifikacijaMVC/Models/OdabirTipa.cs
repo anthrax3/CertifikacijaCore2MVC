@@ -14,5 +14,6 @@ namespace CertifikacijaMVC.Models
         public int PitanjeId { get; set; }
         public TipPolaganja TipPolaganja { get; set; }
         public Pitanje Pitanje { get; set; }
+        public ICollection<OdgNaPitanje> OdgNaPitanjes { get; set; }
     }
 }

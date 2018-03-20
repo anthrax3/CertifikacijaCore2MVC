@@ -15,5 +15,6 @@ namespace CertifikacijaMVC.Models
         public string TekstPitanja { get; set; }
         public ICollection<Test> Testovi { get; set; }
         public ICollection<OdabirTipa> OdabirTipas { get; set; }
+        
     }
 }

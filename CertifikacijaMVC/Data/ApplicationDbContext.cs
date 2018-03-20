@@ -21,6 +21,7 @@ namespace CertifikacijaMVC.Data
         public DbSet<Test> Testovi { get; set; }
         public DbSet<OdabirTipa> OdabirTipas { get; set; }
         public DbSet<Certifikat> Certifikati { get; set; }
+        public DbSet<OdgNaPitanje> OdgNaPitanjes { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

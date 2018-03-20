@@ -11,9 +11,10 @@ using System;
 namespace CertifikacijaMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180320142440_23")]
+    partial class _23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,9 +114,9 @@ namespace CertifikacijaMVC.Data.Migrations
                     b.Property<int>("OdgNaPitanjeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("OdabirTipaId");
-
                     b.Property<int>("OdgovorId");
+
+                    b.Property<int>("PitanjeId");
 
                     b.Property<bool>("Tačno");
 
@@ -124,9 +125,9 @@ namespace CertifikacijaMVC.Data.Migrations
 
                     b.HasKey("OdgNaPitanjeId");
 
-                    b.HasIndex("OdabirTipaId");
-
                     b.HasIndex("OdgovorId");
+
+                    b.HasIndex("PitanjeId");
 
                     b.ToTable("OdgNaPitanjes");
                 });
@@ -352,14 +353,14 @@ namespace CertifikacijaMVC.Data.Migrations
 
             modelBuilder.Entity("CertifikacijaMVC.Models.OdgNaPitanje", b =>
                 {
-                    b.HasOne("CertifikacijaMVC.Models.OdabirTipa", "OdabirTipa")
-                        .WithMany("OdgNaPitanjes")
-                        .HasForeignKey("OdabirTipaId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("CertifikacijaMVC.Models.Odgovor", "Odgovor")
                         .WithMany("OdgNaPitanjes")
                         .HasForeignKey("OdgovorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CertifikacijaMVC.Models.Pitanje", "Pitanje")
+                        .WithMany("OdgNaPitanjes")
+                        .HasForeignKey("PitanjeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
