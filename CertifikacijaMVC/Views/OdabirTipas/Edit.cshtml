@@ -1,0 +1,40 @@
+﻿@model CertifikacijaMVC.Models.OdabirTipa
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>OdabirTipa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OdabirTipaId" />
+            <div class="form-group">
+                <label asp-for="TipPolaganjaId" class="control-label"></label>
+                <select asp-for="TipPolaganjaId" class="form-control" asp-items="ViewBag.TipPolaganjaId"></select>
+                <span asp-validation-for="TipPolaganjaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PitanjeId" class="control-label"></label>
+                <select asp-for="PitanjeId" class="form-control" asp-items="ViewBag.PitanjeId"></select>
+                <span asp-validation-for="PitanjeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
