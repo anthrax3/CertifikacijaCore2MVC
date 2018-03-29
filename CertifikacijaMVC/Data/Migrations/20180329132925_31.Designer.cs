@@ -11,9 +11,10 @@ using System;
 namespace CertifikacijaMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180329132925_31")]
+    partial class _31
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +106,7 @@ namespace CertifikacijaMVC.Data.Migrations
 
                     b.HasIndex("TipPolaganjaId");
 
-                    b.ToTable("OdabirTipas");
+                    b.ToTable("OdabirTipa");
                 });
 
             modelBuilder.Entity("CertifikacijaMVC.Models.OdgNaPitanje", b =>

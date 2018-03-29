@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - Milcom  certifikacija</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-litera.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -17,30 +17,49 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CertifikacijaMVC</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Početna</a></li>
-                    <li><a asp-area="" asp-controller="TipPolaganjas" asp-action="Index">Tip polaganja</a></li>
-                    <li><a asp-area="" asp-controller="Pitanjes" asp-action="Index">Pitanja</a></li>
-                    <li><a asp-area="" asp-controller="OdabirTipas" asp-action="Index">Odabir tipa polaganja</a></li>
-                    <li><a asp-area="" asp-controller="Odgovors" asp-action="Index">Odgovori</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <img src="~/images/logo - Copy.png" alt="logo" width="150"/>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Milcom certifikacija</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Početna<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="TipPolaganjas" asp-action="Index" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="TipPolaganjas" asp-action="Index" class="nav-link">Polaznici</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">O aplikaciji</a>
+                </li>
+            </ul>
+            @await Html.PartialAsync("_LoginPartial")
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Pretraži">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Traži</button>
+            </form>
         </div>
     </nav>
     <div class="container body-content">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                @Html.ActionLink("Početna", "Index", "Home")
+                @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+                {
+                @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Index", ViewContext.RouteData.Values["controller"].ToString())
+                }
+                @if (ViewContext.RouteData.Values["action"].ToString() != "Index")
+                {
+                @:> @Html.ActionLink(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                }
+            </li>
+        </ol>
         @RenderBody()
         <hr />
         <footer>

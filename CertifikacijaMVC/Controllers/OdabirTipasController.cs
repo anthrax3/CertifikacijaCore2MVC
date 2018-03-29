@@ -24,7 +24,7 @@ namespace CertifikacijaMVC.Controllers
         // GET: OdabirTipas
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.OdabirTipa.Include(o => o.Pitanje).Include(o => o.TipPolaganja);
+            var applicationDbContext = _context.OdabirTipas.Include(o => o.Pitanje).Include(o => o.TipPolaganja);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,7 +36,7 @@ namespace CertifikacijaMVC.Controllers
                 return NotFound();
             }
 
-            var odabirTipa = await _context.OdabirTipa
+            var odabirTipa = await _context.OdabirTipas
                 .Include(o => o.Pitanje)
                 .Include(o => o.TipPolaganja)
                 .SingleOrDefaultAsync(m => m.OdabirTipaId == id);
@@ -82,7 +82,7 @@ namespace CertifikacijaMVC.Controllers
                 return NotFound();
             }
 
-            var odabirTipa = await _context.OdabirTipa.SingleOrDefaultAsync(m => m.OdabirTipaId == id);
+            var odabirTipa = await _context.OdabirTipas.SingleOrDefaultAsync(m => m.OdabirTipaId == id);
             if (odabirTipa == null)
             {
                 return NotFound();
@@ -137,7 +137,7 @@ namespace CertifikacijaMVC.Controllers
                 return NotFound();
             }
 
-            var odabirTipa = await _context.OdabirTipa
+            var odabirTipa = await _context.OdabirTipas
                 .Include(o => o.Pitanje)
                 .Include(o => o.TipPolaganja)
                 .SingleOrDefaultAsync(m => m.OdabirTipaId == id);
@@ -154,15 +154,15 @@ namespace CertifikacijaMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var odabirTipa = await _context.OdabirTipa.SingleOrDefaultAsync(m => m.OdabirTipaId == id);
-            _context.OdabirTipa.Remove(odabirTipa);
+            var odabirTipa = await _context.OdabirTipas.SingleOrDefaultAsync(m => m.OdabirTipaId == id);
+            _context.OdabirTipas.Remove(odabirTipa);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OdabirTipaExists(int id)
         {
-            return _context.OdabirTipa.Any(e => e.OdabirTipaId == id);
+            return _context.OdabirTipas.Any(e => e.OdabirTipaId == id);
         }
     }
 }
