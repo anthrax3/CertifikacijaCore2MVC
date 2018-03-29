@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<CertifikacijaMVC.Models.OdabirTipa>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Odabir tipa polaganja";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Odabir tipa polaganja</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -32,12 +32,14 @@
                 @Html.DisplayFor(modelItem => item.TipPolaganja.Tip)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OdabirTipaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OdabirTipaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OdabirTipaId">Delete</a>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-outline-primary" asp-controller="OdgNaPitanjes" asp-action="Index" asp-route-id="@item.OdabirTipaId">Odaberi</a>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.OdabirTipaId">Uredi</a>
+                    <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.OdabirTipaId">Detalji</a>
+                    <a class="btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.OdabirTipaId">Izbriši</a>
+                </div>
             </td>
         </tr>
 }
     </tbody>
 </table>
-<button class="btn icon-next">@Html.ActionLink("Odgovor na pitanje", "Index", "OdgNaPitanjes")</button>
