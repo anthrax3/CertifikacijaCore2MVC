@@ -31,13 +31,13 @@
             </td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.TipPolaganjaId">Uredi</a>
-                    <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.TipPolaganjaId">Detalji</a>
-                    <a class="btn btn-outline-primary" asp-action="Delete" asp-route-id="@item.TipPolaganjaId">Izbriši</a>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.TipPolaganjaId">Uredi</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.TipPolaganjaId">Detalji</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.TipPolaganjaId">Izbriši</a>
                 </div>
             </td>
         </tr>
 }
     </tbody>
 </table>
-<a class="btn btn-default" asp-controller="Pitanjes" asp-action="Index">Idi u pitanja</a>
+<a class="btn btn-dark" asp-controller="Pitanjes" asp-action="Index">Idi u pitanja</a>

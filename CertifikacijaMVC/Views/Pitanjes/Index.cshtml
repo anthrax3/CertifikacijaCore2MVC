@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<CertifikacijaMVC.Models.Pitanje>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pitanja";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Pitanja</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<a href="@Url.Action("Create", "Pitanjas")" class="btn btn-success">
+    Novi<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+</a>
 <table class="table">
     <thead>
         <tr>
@@ -26,12 +26,14 @@
                 @Html.DisplayFor(modelItem => item.TekstPitanja)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PitanjeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PitanjeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PitanjeId">Delete</a>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.PitanjeId">Uredi</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.PitanjeId">Detalji</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PitanjeId">Izbriši</a>
+                </div>
             </td>
         </tr>
 }
     </tbody>
 </table>
-<button class="btn icon-next">@Html.ActionLink("Odabir tipa polaganja", "Index", "OdabirTipas")</button>
+<a class="btn btn-dark" asp-controller="OdabirTipas" asp-action="Index">Odaberi tip polaganja</a>

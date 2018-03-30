@@ -13,10 +13,8 @@ namespace CertifikacijaMVC.Models
         public int OdabirTipaId { get; set; }
         public int OdgovorId { get; set; }
         [Display(Name = "Tačno?")]
-        [Required]
         public bool Tačno { get; set; }
         [Display(Name = "Tip odgovora")]
-        [Required]
         public string TipOdgovora { get; set; }
         public OdabirTipa OdabirTipa { get; set; }
         public Odgovor Odgovor { get; set; }
